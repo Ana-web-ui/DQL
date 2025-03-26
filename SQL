@@ -1,0 +1,68 @@
+INSERT INTO PAIS SELECT * FROM PF1788.PAIS;
+COMMIT;
+INSERT INTO ESTADO SELECT * FROM PF1788.ESTADO;
+COMMIT;
+INSERT INTO CIDADE SELECT * FROM PF1788.CIDADE;
+COMMIT;
+INSERT INTO TIPO_ENDERECO SELECT * FROM PF1788.TIPO_ENDERECO;
+COMMIT;
+INSERT INTO CLIENTE SELECT * FROM PF1788.CLIENTE;
+COMMIT;
+INSERT INTO ENDERECO_CLIENTE SELECT * FROM PF1788.ENDERECO_CLIENTE;
+COMMIT;
+INSERT INTO USUARIO SELECT * FROM PF1788.USUARIO;
+COMMIT;
+INSERT INTO VENDEDOR SELECT * FROM PF1788.VENDEDOR;
+COMMIT;
+INSERT INTO PRODUTO SELECT * FROM PF1788.PRODUTO;
+COMMIT;
+INSERT INTO PRODUTO_COMPOSTO SELECT * FROM PF1788.PRODUTO_COMPOSTO;
+COMMIT;
+INSERT INTO TIPO_MOVIMENTO_ESTOQUE SELECT * FROM PF1788.TIPO_MOVIMENTO_ESTOQUE;
+COMMIT;
+INSERT INTO ESTOQUE SELECT * FROM PF1788.ESTOQUE;
+COMMIT;
+INSERT INTO ESTOQUE_PRODUTO SELECT * FROM PF1788.ESTOQUE_PRODUTO;
+COMMIT;
+INSERT INTO MOVIMENTO_ESTOQUE SELECT * FROM PF1788.MOVIMENTO_ESTOQUE;
+COMMIT;
+INSERT INTO CLIENTE_VENDEDOR SELECT * FROM PF1788.CLIENTE_VENDEDOR;
+COMMIT;
+INSERT INTO PEDIDO SELECT * FROM PF1788.PEDIDO;
+COMMIT;
+INSERT INTO HISTORICO_PEDIDO SELECT * FROM PF1788.HISTORICO_PEDIDO;
+COMMIT;
+INSERT INTO ITEM_PEDIDO SELECT * FROM PF1788.ITEM_PEDIDO;
+COMMIT;
+
+SELECT * FROM CIDADE;
+SELECT * FROM ESTADO;
+
+SELECT NOM_CIDADE FROM CIDADE;
+
+select * from endereco_cliente;
+
+SELECT  
+    a.cod_cliente AS "ID do Cliente",  
+    b.des_tipo_endereco AS "Descrição do tipo do endereço",  
+    a.des_endereco AS "Descrição do endereço",  
+    c.cod_cliente AS "Nome do cliente",  
+    d.num_endereco AS "Número do endereço",
+    e.des_complemento AS "Completo do endereço",
+    f.num_cep AS "Número do CEP",
+    g.des_bairro AS "Descrição do bairro",
+    h.cod_cidade AS "ID da cidade",
+    i.sta_ativo AS "estado do cliente",
+    j.dat_cadastro AS "Data de cadastro",
+    h.dat_cancelamento AS "Data do cancelamento"
+FROM endereco_cliente a  
+JOIN tipo_endereco b ON a.cod_tipo_endereco = b.cod_tipo_endereco  
+JOIN cliente c ON c.cod_cliente = a.cod_cliente  
+JOIN endereco_cliente d ON d.num_endereco = a.num_endereco
+JOIN endereco_cliente e ON e.des_complemento = a.des_complemento
+JOIN endereco_cliente f ON f.num_cep = a.num_cep
+JOIN endereco_cliente g ON g.des_bairro = a.des_bairro
+JOIN cidade h ON h.cod_cidade = a.cod_cidade
+JOIN cliente i ON i.sta_ativo = a.sta_ativo
+JOIN cliente j ON j.dat_cadastro = a.dat_cadastro
+JOIN cliente h ON h.dat_cancelamento = a.dat_cancelamento;
