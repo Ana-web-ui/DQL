@@ -1,0 +1,16 @@
+SELECT
+    *
+FROM
+    movimento_estoque;
+
+SELECT
+    b.qtd_movimentacao_estoque "MOVIMENTO DO ESTOQUE",
+    c.cod_tipo_movimento_estoque "TIPO DO MOVIMENTO",
+    d.cod_produto "PRODUTO NO MOVIMENTO"
+FROM
+         movimento_estoque a
+    JOIN movimento_estoque b ON ( a.qtd_movimentacao_estoque = b.qtd_movimentacao_estoque )
+    JOIN movimento_estoque c ON (a.cod_tipo_movimento_estoque=c.cod_tipo_movimento_estoque)
+    JOIN movimento_estoque d ON (a.cod_produto=d.cod_produto)
+WHERE
+    d.cod_produto= 26
