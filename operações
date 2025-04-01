@@ -1,0 +1,7 @@
+select 100 + 250 SOMA from dual;
+
+select 250 - 1000 SUBTRAÇÃO from dual;
+
+select ROUND (784 / 45,2) DIVISÃO from dual;
+
+select 6987 * 57485 MULTIPLICAÇÃO from dual;
