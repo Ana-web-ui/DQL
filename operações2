@@ -1,0 +1,26 @@
+SELECT
+    cod_pedido                              "Código do pedido",
+    b.cod_cliente,
+    val_total_pedido,
+    val_desconto                            "Desconto pedido",
+    ( val_total_pedido - val_desconto ) "valor da nota",
+   b.nom_cliente         "Nome do cliente",
+   c.qtd_movimentacao_estoque "quantidade de movimento"
+   
+FROM
+    pedido 
+    
+ a JOIN cliente b on (a.cod_cliente=b.cod_cliente),
+ d JOIN movimento_estoque c on (d.qtd_movimentacao_estoque=c.qtd_movimentacao_estoque)
+WHERE
+      
+     c.qtd_movimentacao_estoque = 50
+     b.cod_cliente = 15
+    AND cod_pedido = 130964;
+    
+    
+    
+
+
+
+
