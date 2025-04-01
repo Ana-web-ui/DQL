@@ -1,0 +1,9 @@
+SELECT
+    *
+FROM 
+ produto;
+
+SELECT e.nom_produto AS "NOME DO PRODUTO"
+FROM produto f
+JOIN produto e ON f.nom_produto = e.nom_produto
+WHERE e.nom_produto IS NOT NULL;
